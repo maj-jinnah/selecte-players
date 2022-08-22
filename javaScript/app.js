@@ -89,3 +89,50 @@ function addToSelectArea(event) {
 
     displayPlayer(playerArray);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+function getValueByUsingId(){
+
+}
+function getInnerTextByUsingId(){
+
+}
+function setInnerTextByUsingId(){
+
+}
+
+
+document.getElementById('calculatePlayerAmount').addEventListener('click', function(){
+    // console.log('btn clicked');
+    const playerNumberField = document.getElementById('total-player-number');
+    const playerNumberString = playerNumberField.innerText;
+    const playerNumber = parseInt(playerNumberString);
+
+    // console.log(playerNumber);
+
+    const perPlayerAmountField = document.getElementById('per-Player-Amount');
+    const perPlayerAmountString = perPlayerAmountField.value;
+    const perPlayerAmount = parseInt(perPlayerAmountString);
+
+    // console.log(perPlayerAmount);
+
+    const playerTotalAmount = playerNumber * perPlayerAmount;
+
+    const playerTotalField = document.getElementById('playerTotal');
+    playerTotalField.innerText = playerTotalAmount;
+
+
+
+
+})
