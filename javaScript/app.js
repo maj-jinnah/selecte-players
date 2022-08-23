@@ -42,7 +42,6 @@ function addToSelectArea(event) {
     event.disabled = true ;
     displayPlayer(playerArray);
 }
-
                             // Player Expenses
 document.getElementById('calculatePlayerAmount').addEventListener('click', function () {
 
@@ -53,7 +52,6 @@ document.getElementById('calculatePlayerAmount').addEventListener('click', funct
 
     setInnerTextByUsingId('playerTotal', playerTotalAmount);
 })
-
                                     // Total Amount
 document.getElementById('calculate-total-btn').addEventListener('click', function () {
 
