@@ -52,12 +52,12 @@ function displayPlayer(player) {
 function addToSelectArea(event) {
 
 
-    //              // check
+                    // check
     const numberArea = document.getElementById('total-player-number');
     const numberString = numberArea.innerText
     const number = parseInt(numberString);
 
-    // console.log(number);
+    
     if (number >= 5) {
         alert("You can't add more player");
         return;
@@ -86,7 +86,8 @@ function addToSelectArea(event) {
     //     alert("You can't add more players.");
     //     return;
     // }
-
+    
+    event.disabled = true ;
     displayPlayer(playerArray);
 }
 
@@ -102,36 +103,48 @@ function addToSelectArea(event) {
 
 
 
-function getValueByUsingId() {
+function getValueByUsingId(elementId) {
+    const elementIdValueField = document.getElementById(elementId);
+    const elementIdValueString = elementIdValueField.value;
+    const elementIdValue = parseInt(elementIdValueString);
 
+    return elementIdValue;
 }
-function getInnerTextByUsingId() {
 
+function getInnerTextByUsingId(elementId) {
+    const elementIdInnerTextField = document.getElementById(elementId);
+    const elementIdInnerTextString = elementIdInnerTextField.innerText;
+    const elementIdInnerText = parseInt(elementIdInnerTextString);
+
+    return elementIdInnerText;
 }
-function setInnerTextByUsingId() {
 
+function setInnerTextByUsingId(elementId, elementValue) {
+    const elementIdField = document.getElementById(elementId);
+    elementIdField.innerText = elementValue;
 }
 
 
                             // Player Expenses
 document.getElementById('calculatePlayerAmount').addEventListener('click', function () {
-    // console.log('btn clicked');
-    const playerNumberField = document.getElementById('total-player-number');
-    const playerNumberString = playerNumberField.innerText;
-    const playerNumber = parseInt(playerNumberString);
 
-    // console.log(playerNumber);
+    // const playerNumberField = document.getElementById('total-player-number');
+    // const playerNumberString = playerNumberField.innerText;
+    // const playerNumber = parseInt(playerNumberString);
+    const playerNumber = getInnerTextByUsingId('total-player-number');
 
-    const perPlayerAmountField = document.getElementById('per-Player-Amount');
-    const perPlayerAmountString = perPlayerAmountField.value;
-    const perPlayerAmount = parseInt(perPlayerAmountString);
 
-    // console.log(perPlayerAmount);
+    // const perPlayerAmountField = document.getElementById('per-Player-Amount');
+    // const perPlayerAmountString = perPlayerAmountField.value;
+    // const perPlayerAmount = parseInt(perPlayerAmountString);
+    const perPlayerAmount = getValueByUsingId('per-Player-Amount');
 
     const playerTotalAmount = playerNumber * perPlayerAmount;
 
-    const playerTotalField = document.getElementById('playerTotal');
-    playerTotalField.innerText = playerTotalAmount;
+    // const playerTotalField = document.getElementById('playerTotal');
+    // playerTotalField.innerText = playerTotalAmount;
+    setInnerTextByUsingId('playerTotal', playerTotalAmount);
+
 
 })
 
@@ -144,19 +157,16 @@ document.getElementById('calculate-total-btn').addEventListener('click', functio
     const playerExpensesString = playerExpensesField.innerText;
     const playerExpenses = parseInt(playerExpensesString);
 
-    // console.log(playerExpenses);
 
     const managerAmountField = document.getElementById('manager-amount');
     const managerAmountString = managerAmountField.value;
     const managerAmount = parseInt(managerAmountString);
 
-    // console.log(managerAmount);
 
     const coachAmountField = document.getElementById('coach-amount');
     const coachAmountString = coachAmountField.value;
     const coachAmount = parseInt(coachAmountString);
 
-    // console.log(coachAmount);
 
     const totalAmount = playerExpenses + managerAmount + coachAmount;
 
