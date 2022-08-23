@@ -3,7 +3,7 @@ const playerArray = [];
 function displayPlayer(player) {
 
 
-                     // check
+    // check
     // const numberArea = document.getElementById('total-player-number');
     // const numberString = numberArea.innerText
     // const number = parseInt(numberString);
@@ -17,7 +17,7 @@ function displayPlayer(player) {
 
 
 
-    
+
     const playerNamesArea = document.getElementById('players-name');
     playerNamesArea.innerHTML = '';
 
@@ -63,9 +63,9 @@ function addToSelectArea(event) {
         return;
     }
     // playerNumberCheck();
-    
-    
-    
+
+
+
     // document.getElementById('select-btn').disabled = true;
 
     const playerNameFromWebsite = event.parentNode.parentNode.children[0].innerText;
@@ -102,18 +102,19 @@ function addToSelectArea(event) {
 
 
 
-function getValueByUsingId(){
+function getValueByUsingId() {
 
 }
-function getInnerTextByUsingId(){
+function getInnerTextByUsingId() {
 
 }
-function setInnerTextByUsingId(){
+function setInnerTextByUsingId() {
 
 }
 
 
-document.getElementById('calculatePlayerAmount').addEventListener('click', function(){
+                            // Player Expenses
+document.getElementById('calculatePlayerAmount').addEventListener('click', function () {
     // console.log('btn clicked');
     const playerNumberField = document.getElementById('total-player-number');
     const playerNumberString = playerNumberField.innerText;
@@ -132,7 +133,34 @@ document.getElementById('calculatePlayerAmount').addEventListener('click', funct
     const playerTotalField = document.getElementById('playerTotal');
     playerTotalField.innerText = playerTotalAmount;
 
+})
 
 
+
+                                    // Total Amount
+document.getElementById('calculate-total-btn').addEventListener('click', function () {
+
+    const playerExpensesField = document.getElementById('playerTotal');
+    const playerExpensesString = playerExpensesField.innerText;
+    const playerExpenses = parseInt(playerExpensesString);
+
+    // console.log(playerExpenses);
+
+    const managerAmountField = document.getElementById('manager-amount');
+    const managerAmountString = managerAmountField.value;
+    const managerAmount = parseInt(managerAmountString);
+
+    // console.log(managerAmount);
+
+    const coachAmountField = document.getElementById('coach-amount');
+    const coachAmountString = coachAmountField.value;
+    const coachAmount = parseInt(coachAmountString);
+
+    // console.log(coachAmount);
+
+    const totalAmount = playerExpenses + managerAmount + coachAmount;
+
+    const totalAmountField = document.getElementById('total-amount');
+    totalAmountField.innerText = totalAmount;
 
 })
